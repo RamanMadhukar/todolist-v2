@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const _ = require('lodash');
+require('dotenv').config();
 
 const app = express();
 
 app.set('view engine', 'ejs');
 
-mongoose.connect("mongodb+srv://Raman:sani123@cluster0.o7dew.mongodb.net/todolistDB");
+mongoose.connect(process.env.CONNECTION_URI);
 
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
 // const workList = [];
@@ -154,6 +155,7 @@ app.post("/delete", (req, res) => {
     }
 
 })
+
 
 
 
